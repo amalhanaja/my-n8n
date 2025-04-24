@@ -1,0 +1,3 @@
+.env
+/n8n_storage/*
+!/n8n_storage/README.md
