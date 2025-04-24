@@ -1,13 +1,5 @@
 # n8n Deployment with Docker Compose
 
-Everything starts with a single command:
-
-```bash
-docker compose up -d
-```
-
----
-
 ## Quickstart
 
 ####  1. Clone repository
