@@ -4,7 +4,7 @@
 
 ####  1. Clone repository
 ```bash
-git clone git@github.com:amalhanaja/n8n.git
+git clone git@github.com:amalhanaja/my-n8n.git
 ```
 #### 2. Create `.env`. You can take a look for `example.env` for example environment variable
 #### 3. Start services
