@@ -12,19 +12,26 @@ services:
     image: docker.n8n.io/n8nio/n8n:latest
     container_name: n8n
     restart: unless-stopped
+    environment:
+      - N8N_HOST=$N8N_HOST
+      - N8N_EDITOR_BASE_URL=$N8N_EDITOR_BASE_URL
+      - WEBHOOK_URL=$N8N_WEBHOOK_URL
+      - GENERIC_TIMEZONE=$GENERIC_TIMEZONE
+      - TZ=$TZ
+      - N8N_DEFAULT_LOCALE=$N8N_DEFAULT_LOCALE
     volumes:
       - n8n_storage:/home/node/.n8n
     networks:
-      - n8n_network
+      - cloudflared_tunnel
 
-  tunnel:
-    container_name: n8n-tunnel
+  cloudflared:
+    container_name: macstudio-cf-tunel
     image: cloudflare/cloudflared:latest
     restart: unless-stopped
     command: tunnel --no-autoupdate run --token $TUNNEL_TOKEN
     networks:
-      - n8n_network
+      - cloudflared_tunnel
 
 networks:
-  n8n_network:
+  cloudflared_tunnel:
     driver: bridge
